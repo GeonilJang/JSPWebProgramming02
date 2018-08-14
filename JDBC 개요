@@ -1,0 +1,26 @@
+데이터베이스 연동 순서
+
+1 jdbc 드라이버 로딩
+	- Class.forName("oracle.jdbc.driver.OracleDriver");
+2 데이터베이스 연결 
+	- Connection 객체 생성 : DriverManager.getConnection()
+3 sql문 실행
+	- Statement객체 생성 : connection.createStatement();
+	-- Statement 관련 메소드
+		executeQuery() : 쿼리문을 사용할 때 결과값이 생긴다. select - ResultSet 객체로 결과값 반환
+		수행후 반환되는 레코드셋
+		----> ResultSet -----> 
+	->	BOF
+	->	첫번째 row
+		두번째 row
+		...
+		n번쨰 row
+		EOF
+		  next(), previous(), first(), last(), getString(), getInt()
+		
+		
+		executeUpdate() : 테이블의 내용을 수정, 삭제, 삽입할 때 사용 insert update delete
+	
+	
+4 데이터베이스 연결 해제
+	- ResultSet 객체로부터 데이터 추출, Resultset Close 순서,
